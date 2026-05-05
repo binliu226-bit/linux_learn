@@ -1,0 +1,35 @@
+{
+  "name": "Linux 学习环境",
+  "image": "mcr.microsoft.com/devcontainers/base:ubuntu-22.04",
+  "features": {
+    "ghcr.io/devcontainers/features/common-utils:1": {},
+    "ghcr.io/devcontainers/features/git:1": {},
+    "ghcr.io/devcontainers/features/docker-in-docker:2": {},
+    "ghcr.io/devcontainers/features/github-cli:1": {}
+  },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "ms-vscode.cpptools",
+        "ms-python.python",
+        "ms-vscode.vscode-typescript-next",
+        "ms-vscode.live-server",
+        "yzhang.markdown-all-in-one"
+      ],
+      "settings": {
+        "terminal.integrated.defaultProfile.linux": "bash",
+        "editor.fontSize": 14,
+        "editor.tabSize": 2,
+        "files.autoSave": "afterDelay"
+      }
+    }
+  },
+  "postCreateCommand": "bash -c 'echo \"\\n\\n🎉 欢迎使用 Linux 学习环境！\\n\" && echo \"📚 常用命令：\" && echo \"   - uname -a        # 系统信息\" && echo \"   - lsb_release -a  # Ubuntu 版本\" && echo \"   - df -h           # 磁盘空间\" && echo \"   - free -h         # 内存使用\" && echo \"   - htop            # 进程监控\" && echo \"\\n💡 提示：输入 \\\"help\\\" 可查看更多学习命令\\n\"'",
+  "remoteUser": "vscode",
+  "forwardPorts": [],
+  "runArgs": [
+    "--cap-add=SYS_PTRACE",
+    "--security-opt",
+    "seccomp=unconfined"
+  ]
+}
